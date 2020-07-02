@@ -1,6 +1,6 @@
 mod client;
 mod consts;
-mod error;
+pub mod error;
 pub mod models;
 pub mod websocket;
 
