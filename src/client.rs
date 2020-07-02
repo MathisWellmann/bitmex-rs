@@ -143,6 +143,8 @@ impl BitMEX {
             }
         } else {
             let resp: BitMEXErrorResponse = resp.json().await?;
+            // TODO: for DEBUGGING
+            // println!("bitmex-rs: throwing error with resp: {:?}", resp);
             throw!(BitMEXError::from(resp.error))
         }
     }
