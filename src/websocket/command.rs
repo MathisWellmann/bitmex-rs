@@ -1,5 +1,5 @@
 use super::Topic;
-use crate::consts::WS_URL;
+use crate::consts::WS_URL_MAINNET;
 use crate::BitMEX;
 use fehler::throws;
 use hyper::Method;
@@ -21,7 +21,7 @@ pub enum Command {
 impl Command {
     #[throws(failure::Error)]
     pub fn authenticate(bm: &BitMEX, expires: i64) -> Command {
-        let (key, sig) = bm.signature(Method::GET, expires, &Url::parse(&WS_URL)?, "")?;
+        let (key, sig) = bm.signature(Method::GET, expires, &Url::parse(WS_URL_MAINNET)?, "")?;
         Command::Authenticate(key.to_string(), expires, sig)
     }
 }

@@ -1,4 +1,3 @@
-use crate::consts::REST_URL;
 use crate::error::{BitMEXError, BitMEXErrorResponse};
 use crate::models::swagger::SwaggerApiDescription;
 use crate::models::Request;
@@ -23,6 +22,7 @@ pub struct BitMEX {
     client: Client,
     #[builder(default)]
     credential: Option<(String, String)>,
+    pub(crate) testnet: bool,
 }
 
 impl Default for BitMEX {
@@ -36,6 +36,7 @@ impl BitMEX {
         BitMEX {
             client: Client::new(),
             credential: None,
+            testnet: false,
         }
     }
 
@@ -43,7 +44,13 @@ impl BitMEX {
         BitMEX {
             client: Client::new(),
             credential: Some((api_key.into(), api_secret.into())),
+            testnet: false,
         }
+    }
+
+    /// if value is set to true, this client will call the testnet
+    pub fn set_testnet(&mut self, value: bool) {
+        self.testnet = value;
     }
 
     pub fn builder() -> BitMEXBuilder {
@@ -56,7 +63,11 @@ impl BitMEX {
         R: Request,
         R::Response: DeserializeOwned,
     {
-        let url = format!("{}{}", &*REST_URL, R::ENDPOINT);
+        let rest_url: &str = match self.testnet {
+            true => crate::consts::REST_URL_TESTNET,
+            false => crate::consts::REST_URL_MAINNET,
+        };
+        let url = format!("{}{}", rest_url, R::ENDPOINT);
         let url = match R::METHOD {
             Method::GET | Method::DELETE => {
                 if R::HAS_PAYLOAD {

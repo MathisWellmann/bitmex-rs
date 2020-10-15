@@ -14,3 +14,5 @@ Cargo.lock
 
 .env
 .ipynb_checkpoints
+
+.idea/

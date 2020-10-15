@@ -10,7 +10,6 @@ pub use self::message::{
     TableMessage,
 };
 pub use self::topic::Topic;
-use crate::consts::WS_URL;
 use crate::error::BitMEXError;
 use crate::BitMEX;
 use failure::Fallible;
@@ -33,7 +32,11 @@ type WSStream = WebSocketStream<MaybeTlsStream<TcpStream>>;
 impl BitMEX {
     #[throws(failure::Error)]
     pub async fn websocket(&self) -> BitMEXWebsocket {
-        let (stream, _) = connect_async(Url::parse(&WS_URL).unwrap()).await?;
+        let ws_url: &str = match self.testnet {
+            true => crate::consts::WS_URL_TESTNET,
+            false => crate::consts::WS_URL_MAINNET,
+        };
+        let (stream, _) = connect_async(Url::parse(ws_url).unwrap()).await?;
         BitMEXWebsocket::new(stream)
     }
 }
