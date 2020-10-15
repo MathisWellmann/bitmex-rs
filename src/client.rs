@@ -15,7 +15,7 @@ use serde::Serialize;
 use serde_json::{from_str, to_string, to_value};
 use url::Url;
 
-const EXPIRE_DURATION: i64 = 5;
+const EXPIRE_DURATION: i64 = 60;
 
 #[derive(Clone, Builder)]
 pub struct BitMEX {
@@ -154,6 +154,8 @@ impl BitMEX {
             }
         } else {
             let resp: BitMEXErrorResponse = resp.json().await?;
+            // TODO: for DEBUGGING
+            // println!("bitmex-rs: throwing error with resp: {:?}", resp);
             throw!(BitMEXError::from(resp.error))
         }
     }

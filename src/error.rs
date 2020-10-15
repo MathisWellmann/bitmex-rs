@@ -9,9 +9,9 @@ pub(crate) struct BitMEXErrorResponse {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub(crate) struct BitMEXErrorMessage {
-    pub(crate) message: String,
-    pub(crate) name: String,
+pub struct BitMEXErrorMessage {
+    pub message: String,
+    pub name: String,
 }
 
 impl From<BitMEXErrorMessage> for BitMEXError {

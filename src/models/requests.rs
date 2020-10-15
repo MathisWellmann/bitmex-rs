@@ -703,7 +703,7 @@ pub struct GetUserEventResponse {
 }
 impl Request for GetAnnouncementRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/announcement";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Announcement>;
@@ -724,7 +724,7 @@ impl Request for GetApiKeyRequest {
 }
 impl Request for GetChatRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/chat";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Chat>;
@@ -738,14 +738,14 @@ impl Request for PostChatRequest {
 }
 impl Request for GetChatChannelsRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/chat/channels";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<ChatChannel>;
 }
 impl Request for GetChatConnectedRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/chat/connected";
     const HAS_PAYLOAD: bool = false;
     type Response = ConnectedUsers;
@@ -766,63 +766,63 @@ impl Request for GetExecutionTradeHistoryRequest {
 }
 impl Request for GetFundingRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/funding";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Funding>;
 }
 impl Request for GetInstrumentRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Instrument>;
 }
 impl Request for GetInstrumentActiveRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument/active";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<Instrument>;
 }
 impl Request for GetInstrumentIndicesRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument/indices";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<Instrument>;
 }
 impl Request for GetInstrumentActiveAndIndicesRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument/activeAndIndices";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<Instrument>;
 }
 impl Request for GetInstrumentActiveIntervalsRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument/activeIntervals";
     const HAS_PAYLOAD: bool = false;
     type Response = InstrumentInterval;
 }
 impl Request for GetInstrumentCompositeIndexRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/instrument/compositeIndex";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<IndexComposite>;
 }
 impl Request for GetInsuranceRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/insurance";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Insurance>;
 }
 impl Request for GetLeaderboardRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/leaderboard";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Leaderboard>;
@@ -836,7 +836,7 @@ impl Request for GetLeaderboardNameRequest {
 }
 impl Request for GetLiquidationRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/liquidation";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Liquidation>;
@@ -913,7 +913,7 @@ impl Request for PostOrderCancelAllAfterRequest {
 }
 impl Request for GetOrderBookL2Request {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/orderBook/L2";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<OrderBookL2>;
@@ -955,70 +955,70 @@ impl Request for PostPositionLeverageRequest {
 }
 impl Request for GetQuoteRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/quote";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Quote>;
 }
 impl Request for GetQuoteBucketedRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/quote/bucketed";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Quote>;
 }
 impl Request for GetSchemaRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/schema";
     const HAS_PAYLOAD: bool = true;
     type Response = GetSchemaResponse;
 }
 impl Request for GetSchemaWebsocketHelpRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/schema/websocketHelp";
     const HAS_PAYLOAD: bool = false;
     type Response = GetSchemaWebsocketHelpResponse;
 }
 impl Request for GetSettlementRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/settlement";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Settlement>;
 }
 impl Request for GetStatsRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/stats";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<Stats>;
 }
 impl Request for GetStatsHistoryRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/stats/history";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<StatsHistory>;
 }
 impl Request for GetStatsHistoryUSDRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/stats/historyUSD";
     const HAS_PAYLOAD: bool = false;
     type Response = Vec<StatsUSD>;
 }
 impl Request for GetTradeRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/trade";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<Trade>;
 }
 impl Request for GetTradeBucketedRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/trade/bucketed";
     const HAS_PAYLOAD: bool = true;
     type Response = Vec<TradeBin>;
@@ -1060,7 +1060,7 @@ impl Request for GetUserExecutionHistoryRequest {
 }
 impl Request for GetUserMinWithdrawalFeeRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/minWithdrawalFee";
     const HAS_PAYLOAD: bool = true;
     type Response = GetUserMinWithdrawalFeeResponse;
@@ -1074,21 +1074,21 @@ impl Request for PostUserRequestWithdrawalRequest {
 }
 impl Request for PostUserCancelWithdrawalRequest {
     const METHOD: Method = Method::POST;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/cancelWithdrawal";
     const HAS_PAYLOAD: bool = true;
     type Response = Transaction;
 }
 impl Request for PostUserConfirmWithdrawalRequest {
     const METHOD: Method = Method::POST;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/confirmWithdrawal";
     const HAS_PAYLOAD: bool = true;
     type Response = Transaction;
 }
 impl Request for PostUserConfirmEmailRequest {
     const METHOD: Method = Method::POST;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/confirmEmail";
     const HAS_PAYLOAD: bool = true;
     type Response = AccessToken;
@@ -1102,7 +1102,7 @@ impl Request for GetUserAffiliateStatusRequest {
 }
 impl Request for GetUserCheckReferralCodeRequest {
     const METHOD: Method = Method::GET;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/checkReferralCode";
     const HAS_PAYLOAD: bool = true;
     type Response = f64;
@@ -1116,7 +1116,7 @@ impl Request for GetUserQuoteFillRatioRequest {
 }
 impl Request for PostUserLogoutRequest {
     const METHOD: Method = Method::POST;
-    const SIGNED: bool = false;
+    const SIGNED: bool = true;
     const ENDPOINT: &'static str = "/user/logout";
     const HAS_PAYLOAD: bool = false;
     type Response = ();
